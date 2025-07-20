@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\c#\\100\u5E74\\Q4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A365A1BD-D452-4645-A500-64E493781F29}|Q4\\Q4.csproj|C:\\Users\\User\\Desktop\\c#\\100\u5E74\\Q4\\q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A365A1BD-D452-4645-A500-64E493781F29}|Q4\\Q4.csproj|c:\\users\\user\\desktop\\c#\\100\u5E74\\q4\\q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A365A1BD-D452-4645-A500-64E493781F29}|Q4\\Q4.csproj|solutionrelative:q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A365A1BD-D452-4645-A500-64E493781F29}|Q4\\Q4.csproj|c:\\users\\user\\desktop\\c#\\100\u5E74\\q4\\q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A365A1BD-D452-4645-A500-64E493781F29}|Q4\\Q4.csproj|C:\\Users\\User\\Desktop\\c#\\100\u5E74\\Q4\\q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A365A1BD-D452-4645-A500-64E493781F29}|Q4\\Q4.csproj|solutionrelative:q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Q4\\Form1.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\c#\\100\u5E74\\Q4\\Q4\\Form1.cs*",
               "RelativeToolTip": "Q4\\Form1.cs*",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAgwGYAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAqwGcAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-09T20:30:05.321Z",
               "EditorCaption": ""

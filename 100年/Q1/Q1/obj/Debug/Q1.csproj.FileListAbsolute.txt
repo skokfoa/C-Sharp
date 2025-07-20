@@ -8,3 +8,4 @@ C:\Users\User\Desktop\c#\100年\Q1\Q1\bin\Debug\Q1.exe
 C:\Users\User\Desktop\c#\100年\Q1\Q1\bin\Debug\Q1.pdb
 C:\Users\User\Desktop\c#\100年\Q1\Q1\obj\Debug\Q1.exe
 C:\Users\User\Desktop\c#\100年\Q1\Q1\obj\Debug\Q1.pdb
+C:\Users\User\Desktop\c#\100年\Q1\Q1\obj\Debug\Q1.exe.config
