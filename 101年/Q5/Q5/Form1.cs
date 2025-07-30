@@ -210,39 +210,18 @@ namespace Q5
 
             public bool check(byte[] status)
             {
-                byte[] change = new byte[9] { 4, 0, 1, 2, 5, 8, 7, 6, 3 };
-                byte[] check_status = new byte[8];
-                if (status[change[0]] != 0)
+                byte[] ans = new byte[9]{1, 2, 3, 8, 0, 4, 7, 6, 5};
+                for (int i = 0; i < 8; i++)
                 {
-                    return false;
-                }
-                for (int i = 1; i < 9; i++)
-                {
-                    check_status[i - 1] = status[change[i]];
-                }
-                for (int i = 0; i < check_status.Length; i++)
-                {
-                    if (check_status[i] == 1)
+                    for(int j = 0; j < ans.Length; j++)
                     {
-                        int result = 1;
-                        for (int j = i + 1; j < check_status.Length + i; j++)
+                        if ((status[j] + i) == ans[j])
                         {
-                            if (check_status[j % 8] + 1 == result)
-                            {
-                                result++;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                        if (result == 9)
-                        {
-                            return true;
+                            ans[j] = 10; // 已經找到
+                            break;
                         }
                     }
                 }
-                return false;
             }
         }
     }
