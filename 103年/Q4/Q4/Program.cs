@@ -56,7 +56,8 @@ public class Program
         string input;
         while (!string.IsNullOrEmpty(input = Console.ReadLine()))
         {
-            string[] parts = input.Split(" ");
+            input = input.Replace('\u3000', ' ');
+            string[] parts = input.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             int sex;
             if(parts.Length < 3)
             {
@@ -84,16 +85,41 @@ public class Program
                 Item = parts[4]
             });
         }
+
     }
 
     public static void input_chack()
     {
-        Console.WriteLine("2");
+        Console.Write("請輸入班級、學號、姓名：");
+        string[] input = Console.ReadLine().Split();
+
+        byte count = 0;
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (input[0] == players[i].Class && input[1] == players[i].Class_number && input[2] == players[i].Name)
+            {
+                string[] sex = new string[] { "未知", "男", "女" };
+                Console.WriteLine($"{count + 1}. {players[i].Class} {players[i].Class_number} {players[i].Name} {sex[players[i].Sex]} {players[i].Item}");
+                count++;
+            }
+        }
     }
 
     public static void delete_input()
     {
-        Console.WriteLine("3");
+        Console.Write("請輸入班級、學號、姓名及報名項目：");
+        string[] input = Console.ReadLine().Split();
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (input[0] == players[i].Class && input[1] == players[i].Class_number && input[2] == players[i].Name && input[3] == players[i].Item)
+            {
+                string[] sex = new string[] { "未知", "男", "女" };
+                Console.WriteLine($"被刪除選手資料：{players[i].Class} {players[i].Class_number} {players[i].Name} {sex[players[i].Sex]} {players[i].Item}");
+                players.RemoveAt(i);
+                return;
+            }
+        }
     }
 
     public static void one_input()
@@ -107,7 +133,7 @@ public class Program
     }
 }
 
-class Player()
+class Player
 {
     public string Class;
     public string Class_number;
