@@ -14,8 +14,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -28,7 +32,7 @@
               "RelativeDocumentMoniker": "Q4\\Program.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\c#\\103\u5E74\\Q4\\Q4\\Program.cs*",
               "RelativeToolTip": "Q4\\Program.cs*",
-              "ViewState": "AgIAAGoAAAAAAAAAAADwv3YAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAkwMkAAACPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T17:00:07.697Z",
               "EditorCaption": ""

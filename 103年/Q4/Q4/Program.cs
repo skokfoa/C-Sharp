@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -124,12 +125,82 @@ public class Program
 
     public static void one_input()
     {
-        Console.WriteLine("4");
+        Console.Write("請輸入班級、學號、姓名及性別：");
+        string[] input = Console.ReadLine().Split();
+        string[] item = new string[] {"大隊接力",
+                                      "一顆球的距離",
+                                      "天旋地轉",
+                                      "滾大球袋鼠跳",
+                                      "攜手同心",
+                                      "100 公尺",
+                                      "400 公尺接力",
+                                      "800 公尺",
+                                      "跳高"};
+        char[] item_alf = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i' };
+        Console.WriteLine("報名項目：");
+        for (int i = 0; i < item.Length; i++)
+        {
+            Console.WriteLine($"{item_alf[i]}：{item[i]}");
+        }
+        Console.Write("請選擇：");
+        string item_input = Console.ReadLine();
+        int sex;
+        if (input.Length < 3)
+        {
+            return;
+        }
+        if (input[3] == "男")
+        {
+            sex = 1;
+        }
+        else if (input[3] == "女")
+        {
+            sex = 2;
+        }
+        else
+        {
+            sex = 0;
+        }
+        for (int i = 0; i < item_alf.Length; i++)
+        {
+            if (item_input == item_alf[i].ToString())
+            {
+                players.Add(new Player
+                {
+                    Class = input[0],
+                    Class_number = input[1],
+                    Name = input[2],
+                    Sex = sex,
+                    Item = item[i]
+                });
+                break;
+            }
+        }
     }
 
     public static void veiw()
     {
-        Console.WriteLine("5");
+        string[] item = new string[] {"大隊接力",
+                                      "一顆球的距離",
+                                      "天旋地轉",
+                                      "滾大球袋鼠跳",
+                                      "攜手同心",
+                                      "100 公尺",
+                                      "400 公尺接力",
+                                      "800 公尺",
+                                      "跳高"};
+        char[] item_alf = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i' };
+        Console.WriteLine("報名項目：");
+        for (int i = 0; i < item.Length; i++)
+        {
+            Console.WriteLine($"{item_alf[i]}：{item[i]}");
+        }
+        Console.WriteLine("班級      學號     姓名  性別   報名項目");
+        string[] sex = new string[] { "未知", "男", "女" };
+        for (int i = 0; i < players.Count; i++)
+        {
+            Console.WriteLine($"{players[i].Class}  {players[i].Class_number} {players[i].Name}   {sex[players[i].Sex]}    {players[i].Item}");
+        }
     }
 }
 
