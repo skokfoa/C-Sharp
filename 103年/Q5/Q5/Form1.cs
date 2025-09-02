@@ -95,9 +95,13 @@ namespace Q5
             {
                 b[i] = a % 10;
                 a /= 10;
-                sum += b[i] * (i + 1);
             }
 
+            b = b.Reverse().ToArray();
+            for (int i = 0; i < 8; i++)
+            {
+                sum += b[i] * (i + 1);
+            }
             sum = sum % 10;
 
             return checkNum[sum];

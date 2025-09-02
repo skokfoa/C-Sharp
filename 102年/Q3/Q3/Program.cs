@@ -1,88 +1,97 @@
-﻿class project
+﻿using System.Collections.Generic;
+
+class path
 {
-    static void Main(string[] args)
+    public int to;
+    public int cost;
+
+    public path(int to, int cost)
     {
-        List<int> startMove = new List<int>();
-        List<int> endMove = new List<int>();
-        List<int> cost = new List<int>();
-        List<string[]> input = new List<string[]>();
-        int i = new int();
-        while(Console.ReadLine() != null)
-        {
-            input[i] = Console.ReadLine().Split();
-            i++;
-        }
-
-        for(int j = 0; j < input.Count; j++)
-        {
-            startMove.Add(int.Parse(input[j][0]));
-            endMove.Add(int.Parse(input[j][1]));
-            cost.Add(int.Parse(input[j][2]));
-        }
-    }
-    List<Node> solve(List<int> start, List<int> goal, List<int> cost)
-    {
-        Queue<Node> queue = new Queue<Node>();
-        HashSet<int> visited = new HashSet<int>();
-
-        Node start_node = new Node(1, null);
-        int end = 7;
-
-        queue.Enqueue(start_node);
-        visited.Add(start_node.status);
-
-        while(queue.Count > 0)
-        {
-            Node now = queue.Dequeue();
-            if(now.status == end)
-            {
-                return constructPath(now);
-            }
-            List<Node> nextPath = move(now, start, goal);
-            foreach (var path in nextPath)
-            {
-                if (!visited.Add(path))
-                {           
-                    queue.Enqueue(path);
-                    visited.Add(path);
-                }
-            }
-        }
-    }
-
-    List<Node> move(Node now, List<int> start, List<int> goal)
-    {
-        List<Node> move = new List<Node>();
-        for(int i = 0; i < start.Count; i++)
-        {
-            if(now.status == start[i])
-            {
-                move.Add(new Node(goal[i], now));
-            }
-        }
-        return move;
-    }
-
-    List<Node> constructPath(Node current)
-    {
-        List<Node> path = new List<Node>();
-        while(current != null)
-        {
-            path.Add(current);
-            current = current.father;
-        }
-        path.Reverse();
-        return path;
+        this.to = to;
+        this.cost = cost;
     }
 }
 
-public class Node
+class Project
 {
-    public int status;
-    public Node father;
-    public Node(int status, Node father)
+    static void Main()
     {
-        this.status = status;
-        this.father = father;
+        Dictionary<int, List<path>> graph = new Dictionary<int, List<path>>();
+        Console.WriteLine("請輸入路徑：");
+        string input = string.Empty;
+        while(!string.IsNullOrEmpty(input = Console.ReadLine()))
+        {
+            string[] paths = input.Split(" ");
+            int from = int.Parse(paths[0]);
+            int to = int.Parse(paths[1]);
+            int cost = int.Parse(paths[2]);
+
+            if (!graph.ContainsKey(from))
+                graph[from] = new List<path>();
+            
+            graph[from].Add(new path(to, cost));
+        }
+
+        Console.WriteLine("請輸入起點與終點：");
+        string[] points = Console.ReadLine().Split(" ");
+        int start = int.Parse(points[0]);
+        int end = int.Parse(points[1]);
+
+        var (dist, prev) = Dijkstra(graph, start);
+
+        if (!dist.ContainsKey(end) || dist[end] == int.MaxValue)
+        {
+            Console.WriteLine($"從 {start} 到 {end} 沒有路徑。");
+            return;
+        }
+
+        Console.WriteLine($"最低成本 = {dist[end]}");
+
+        List<int> path = ReconstructPath(prev, start, end);
+        Console.WriteLine("路徑: " + string.Join(" -> ", path));
+    }
+
+    static (Dictionary<int, int>, Dictionary<int, int>) Dijkstra(Dictionary<int, List<path>> graph, int start)
+    {
+        var dist = new Dictionary<int, int>();
+        var prev = new Dictionary<int, int>();
+        var pq = new PriorityQueue<int, int>();
+
+        foreach (var node in graph.Keys)
+        {
+            dist[node] = int.MaxValue;
+            prev[node] = -1;
+        }
+        dist[start] = 0;
+        pq.Enqueue(start, 0);
+
+        while(pq.Count > 0)
+        {
+            pq.TryDequeue(out int u, out int d);
+            if (d > dist[u]) continue;
+            if (!graph.ContainsKey(u)) continue;
+
+            foreach (var edge in graph[u])
+            {
+                int v = edge.to;
+                int cost = d+edge.cost; 
+                if (!dist.ContainsKey(v) || cost < dist[v])
+                {
+                    dist[v] = cost;
+                    prev[v] = u;
+                    pq.Enqueue(v, cost);
+                }
+            }
+        }
+        return (dist, prev);
+    }
+
+    static List<int> ReconstructPath(Dictionary<int, int> prev, int s, int t)
+    {
+        List<int> path = new List<int>();
+        for (int v = t; v != -1; v = prev.ContainsKey(v) ? prev[v] : -1)
+            path.Add(v);
+        path.Reverse(); 
+        return path;
     }
 }

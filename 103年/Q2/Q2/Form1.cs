@@ -53,5 +53,44 @@ namespace Q2
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<double> first = new List<double>();
+            List<double> second = new List<double>();
+            List<double> third = new List<double>();
+
+            string[] input = textBox1.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            double[,] calculate = new double[input.Length,2];
+            double[] avrg = new double[2];
+            double[] sigma = new double[2];
+            for (int i = 0; i < input.Length; i++)
+            {
+                string[] line = input[i].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                calculate[i,0] = double.Parse(line[1]);
+                calculate[i,1] = double.Parse(line[2]);
+                avrg[0] += calculate[i, 0];
+                avrg[1] += calculate[i, 1];
+            }
+            avrg[0] /= input.Length;
+            avrg[1] /= input.Length;
+            for(int i = 0; i < input.Length; i++)
+            {
+                sigma[0] += (calculate[i, 0] - avrg[0]) * (calculate[i, 0] - avrg[0]);
+                sigma[1] += (calculate[i, 1] - avrg[1]) * (calculate[i, 1] - avrg[1]);
+            }
+            sigma[0] /= input.Length;
+            sigma[1] /= input.Length;
+
+            for(int i = 0; i < input.Length; i++)
+            {
+                calculate[i,0] = (calculate[i, 0] - avrg[0])/ sigma[0];
+            }
+
+            for (int i = 0; i < 200; i++)
+            {
+                calculate[i, 1] = (calculate[i, 1] - avrg[1]) / sigma[1];
+            }
+        }
     }
 }

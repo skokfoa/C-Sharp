@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Q3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8699f71764ae42eb759aec8d80d04109e1080b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1df884f1c0e140e2adf73099db41cb776789157")]
 [assembly: System.Reflection.AssemblyProductAttribute("Q3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Q3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
