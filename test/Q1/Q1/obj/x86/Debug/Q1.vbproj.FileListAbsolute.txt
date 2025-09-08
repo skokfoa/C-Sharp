@@ -1,0 +1,18 @@
+C:\Users\User\AppData\Local\Temporary Projects\Q1\obj\x86\Debug\Q1.Form1.resources
+C:\Users\User\AppData\Local\Temporary Projects\Q1\obj\x86\Debug\Q1.Resources.resources
+C:\Users\User\AppData\Local\Temporary Projects\Q1\obj\x86\Debug\Q1.vbproj.GenerateResource.Cache
+C:\Users\User\AppData\Local\Temporary Projects\Q1\bin\Debug\Q1.exe
+C:\Users\User\AppData\Local\Temporary Projects\Q1\bin\Debug\Q1.pdb
+C:\Users\User\AppData\Local\Temporary Projects\Q1\bin\Debug\Q1.xml
+C:\Users\User\AppData\Local\Temporary Projects\Q1\obj\x86\Debug\Q1.exe
+C:\Users\User\AppData\Local\Temporary Projects\Q1\obj\x86\Debug\Q1.xml
+C:\Users\User\AppData\Local\Temporary Projects\Q1\obj\x86\Debug\Q1.pdb
+C:\Users\User\Desktop\c#\test\Q1\Q1\obj\x86\Debug\Q1.exe
+C:\Users\User\Desktop\c#\test\Q1\Q1\obj\x86\Debug\Q1.xml
+C:\Users\User\Desktop\c#\test\Q1\Q1\obj\x86\Debug\Q1.pdb
+C:\Users\User\Desktop\c#\test\Q1\Q1\bin\Debug\Q1.exe
+C:\Users\User\Desktop\c#\test\Q1\Q1\bin\Debug\Q1.pdb
+C:\Users\User\Desktop\c#\test\Q1\Q1\bin\Debug\Q1.xml
+C:\Users\User\Desktop\c#\test\Q1\Q1\obj\x86\Debug\Q1.Form1.resources
+C:\Users\User\Desktop\c#\test\Q1\Q1\obj\x86\Debug\Q1.Resources.resources
+C:\Users\User\Desktop\c#\test\Q1\Q1\obj\x86\Debug\Q1.vbproj.GenerateResource.cache

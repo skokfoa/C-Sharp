@@ -19,6 +19,7 @@ namespace Q1
         public Label[,] all = new Label[4,4];
         public int[] now = new int[2];
         public int[,] num = new int[4, 4];
+
         public Form1()
         {
             InitializeComponent();
@@ -28,59 +29,59 @@ namespace Q1
             place4 = new Label[4] { label16, label15, label14, label13 };
             all = new Label[4, 4]
             {
-                { label1, label2, label8, label7 },
-                { label3, label4, label6, label5 },
-                { label12, label11, label16, label15 },
-                { label10, label9, label14, label13 }
+                { label1, label3, label12, label10 },
+                { label2, label4, label11, label9 },
+                { label8, label6, label16, label14 },
+                { label7, label5, label15, label13 }
             };
             start();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            now = new int[] { 1, 0 };
+            now = new int[] { 0, 0 };
             clear_label();
             label1.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            now = new int[] { 1, 1 };
+            now = new int[] { 1, 0 };
             clear_label();
             label2.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            now = new int[] { 1, 2 };
+            now = new int[] { 0, 1 };
             clear_label();
             label3.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            now = new int[] { 1, 3 };
+            now = new int[] { 1, 1 };
             clear_label();
             label4.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-            now = new int[] { 2, 3 };
+            now = new int[] { 3, 1 };
             clear_label();
             label5.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            now = new int[] { 2, 2 };
+            now = new int[] { 2, 1 };
             clear_label();
             label6.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
-            now = new int[] { 2, 1 };
+            now = new int[] { 3, 0 };
             clear_label();
             label7.BorderStyle = BorderStyle.FixedSingle;
         }
@@ -94,56 +95,56 @@ namespace Q1
 
         private void label9_Click(object sender, EventArgs e)
         {
-            now = new int[] { 3, 3 };
+            now = new int[] { 1, 3 };
             clear_label();
             label9.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
-            now = new int[] { 3, 2 };
+            now = new int[] { 0, 3 };
             clear_label();
             label10.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
-            now = new int[] { 3, 1 };
+            now = new int[] { 1, 2 };
             clear_label();
             label11.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label12_Click(object sender, EventArgs e)
         {
-            now = new int[] { 3, 0 };
+            now = new int[] { 0, 2 };
             clear_label();
             label12.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label13_Click(object sender, EventArgs e)
         {
-            now = new int[] { 4, 3 };
+            now = new int[] { 3, 3 };
             clear_label();
             label13.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label14_Click(object sender, EventArgs e)
         {
-            now = new int[] { 4, 2 };
+            now = new int[] { 2, 3 };
             clear_label();
             label14.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label15_Click(object sender, EventArgs e)
         {
-            now = new int[] { 4, 1 };
+            now = new int[] { 3, 2 };
             clear_label();
             label15.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void label16_Click(object sender, EventArgs e)
         {
-            now = new int[] { 4, 0 };
+            now = new int[] { 2, 2 };
             clear_label();
             label16.BorderStyle = BorderStyle.FixedSingle;
         }
@@ -151,69 +152,29 @@ namespace Q1
         private void button1_Click(object sender, EventArgs e)
         {
             string a = "1";
-            switch(now[0])
-            {
-                case 1:
-                    place1[now[1]].Text = a; break;
-                case 2:
-                    place2[now[1]].Text = a; break;
-                case 3:
-                    place3[now[1]].Text = a; break;
-                case 4:
-                    place4[now[1]].Text = a; break;
-            }
-            num[now[0]-1, now[1]] = 1;
+            all[now[0],now[1]].Text = a;
+            num[now[0], now[1]] = int.Parse(a);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string a = "2";
-            switch (now[0])
-            {
-                case 1:
-                    place1[now[1]].Text = a; break;
-                case 2:
-                    place2[now[1]].Text = a; break;
-                case 3:
-                    place3[now[1]].Text = a; break;
-                case 4:
-                    place4[now[1]].Text = a; break;
-            }
-            num[now[0] - 1, now[1]] = 2;
+            all[now[0], now[1]].Text = a;
+            num[now[0], now[1]] = int.Parse(a);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             string a = "3";
-            switch (now[0])
-            {
-                case 1:
-                    place1[now[1]].Text = a; break;
-                case 2:
-                    place2[now[1]].Text = a; break;
-                case 3:
-                    place3[now[1]].Text = a; break;
-                case 4:
-                    place4[now[1]].Text = a; break;
-            }
-            num[now[0] - 1, now[1]] = 3;
+            all[now[0], now[1]].Text = a;
+            num[now[0], now[1]] = int.Parse(a);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             string a = "4";
-            switch (now[0])
-            {
-                case 1:
-                    place1[now[1]].Text = a; break;
-                case 2:
-                    place2[now[1]].Text = a; break;
-                case 3:
-                    place3[now[1]].Text = a; break;
-                case 4:
-                    place4[now[1]].Text = a; break;
-            }
-            num[now[0] - 1, now[1]] = 4;
+            all[now[0], now[1]].Text = a;
+            num[now[0], now[1]] = int.Parse(a);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -228,7 +189,6 @@ namespace Q1
             {
                 for(int j = 0;j < 4; j++)
                 {
-                    textBox1.Text += $"{num[i,j]} ";
                     switch (num[i,j])
                     {
                         case 1:
@@ -243,14 +203,12 @@ namespace Q1
                             output.Add(new int[] { i, j }); break;
                     }
                 }
-                textBox1.Text += Environment.NewLine;
             }
 
             for (int i = 0; i < output.Count; i++)
             {
                 var (x, y) = (output[i][0], output[i][1]);
                 all[x, y].Text = string.Empty;
-                all[x, y].BackColor = SystemColors.ActiveCaption;
                 if (!num1.Any(n => n[0] == x) && !num1.Any(n => n[1] == y))
                 {
                     all[x,y].Text += "1,";
@@ -338,21 +296,13 @@ namespace Q1
                 point.Add((x,y));
             }
 
-            Label[][] placeCols = new Label[][]
-            {
-                place1,
-                place2,
-                place3,
-                place4
-            };
-
             var put = point.ToList();
 
             for (int i = 0;i < put.Count;i++)
             {
                 string a = (i+1).ToString();
                 var (x, y) = put[i];
-                placeCols[x][y].Text = a;
+                all[x,y].Text = a;
                 num[x, y] = i + 1;
             }
 
