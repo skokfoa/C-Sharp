@@ -1,0 +1,11 @@
+C:\Users\User\Desktop\c#\105年\Q2\Q2\bin\Debug\Q2.exe.config
+C:\Users\User\Desktop\c#\105年\Q2\Q2\bin\Debug\Q2.exe
+C:\Users\User\Desktop\c#\105年\Q2\Q2\bin\Debug\Q2.pdb
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.Form1.resources
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.Properties.Resources.resources
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.csproj.GenerateResource.cache
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.exe
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.pdb
+C:\Users\User\Desktop\c#\105年\Q2\Q2\obj\Debug\Q2.exe.config

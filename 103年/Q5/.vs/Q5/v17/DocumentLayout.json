@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{EC15D002-40EF-497C-8C00-75751FE74507}|Q5\\Q5.csproj|solutionrelative:q5\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EC15D002-40EF-497C-8C00-75751FE74507}|Q5\\Q5.csproj|c:\\users\\user\\desktop\\c#\\103\u5E74\\q5\\q5\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{EC15D002-40EF-497C-8C00-75751FE74507}|Q5\\Q5.csproj|C:\\Users\\User\\Desktop\\c#\\103\u5E74\\Q5\\q5\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{EC15D002-40EF-497C-8C00-75751FE74507}|Q5\\Q5.csproj|solutionrelative:q5\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Q5\\Form1.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\c#\\103\u5E74\\Q5\\Q5\\Form1.cs",
               "RelativeToolTip": "Q5\\Form1.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAwEAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAIwGcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T17:10:18.146Z",
               "EditorCaption": ""
@@ -46,8 +46,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\c#\\103\u5E74\\Q5\\Q5\\Form1.cs [\u8A2D\u8A08]",
               "RelativeToolTip": "Q5\\Form1.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T17:04:23.199Z",
-              "EditorCaption": " [\u8A2D\u8A08]"
+              "WhenOpened": "2025-08-14T17:04:23.199Z"
             }
           ]
         }
