@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\",
+  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0392EAD-FE38-46E8-96D6-A2392000CA31}|Q2\\Q2.csproj|c:\\users\\user\\desktop\\c#\\105\u5E74\\q2\\q2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C0392EAD-FE38-46E8-96D6-A2392000CA31}|Q2\\Q2.csproj|c:\\users\\\u5B87\\desktop\\c#\\105\u5E74\\q2\\q2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0392EAD-FE38-46E8-96D6-A2392000CA31}|Q2\\Q2.csproj|solutionrelative:q2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0392EAD-FE38-46E8-96D6-A2392000CA31}|Q2\\Q2.csproj|C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\q2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{C0392EAD-FE38-46E8-96D6-A2392000CA31}|Q2\\Q2.csproj|C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q2\\q2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C0392EAD-FE38-46E8-96D6-A2392000CA31}|Q2\\Q2.csproj|solutionrelative:q2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -18,20 +18,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\Q2\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q2\\Q2\\Form1.cs",
               "RelativeDocumentMoniker": "Q2\\Form1.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\Q2\\Form1.cs*",
-              "RelativeToolTip": "Q2\\Form1.cs*",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q2\\Q2\\Form1.cs",
+              "RelativeToolTip": "Q2\\Form1.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAYwCEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-19T18:00:31.62Z",
@@ -41,13 +37,12 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [\u8A2D\u8A08]",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\Q2\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q2\\Q2\\Form1.cs",
               "RelativeDocumentMoniker": "Q2\\Form1.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\Q2\\Form1.cs [\u8A2D\u8A08]*",
-              "RelativeToolTip": "Q2\\Form1.cs [\u8A2D\u8A08]*",
+              "ToolTip": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q2\\Q2\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\User\\Desktop\\c#\\105\u5E74\\Q2\\Q2\\Form1.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T17:56:15.844Z",
-              "EditorCaption": " [\u8A2D\u8A08]"
+              "WhenOpened": "2025-09-19T17:56:15.844Z"
             }
           ]
         }
