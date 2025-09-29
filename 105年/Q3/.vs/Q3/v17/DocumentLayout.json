@@ -1,9 +1,16 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q3\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{39E38796-98D7-4A43-9631-F3DF5A020FB6}|Q3\\Q3.csproj|c:\\users\\user\\desktop\\c#\\105\u5E74\\q3\\q3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{39E38796-98D7-4A43-9631-F3DF5A020FB6}|Q3\\Q3.csproj|c:\\users\\\u5B87\\desktop\\c#\\105\u5E74\\q3\\q3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> 5a2a54b002ebd7cd5ca1c2ecf3b2176627060c90
       "RelativeMoniker": "D:0:0:{39E38796-98D7-4A43-9631-F3DF5A020FB6}|Q3\\Q3.csproj|solutionrelative:q3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,6 +21,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -29,6 +37,19 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\c#\\105\u5E74\\Q3\\Q3\\Program.cs",
               "RelativeToolTip": "Q3\\Program.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAAAF0AAAAiAAAAAAAAAA==",
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q3\\Q3\\Program.cs",
+              "RelativeDocumentMoniker": "Q3\\Program.cs",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\105\u5E74\\Q3\\Q3\\Program.cs",
+              "RelativeToolTip": "Q3\\Program.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAF0AAAAiAAAAAAAAAA==",
+>>>>>>> 5a2a54b002ebd7cd5ca1c2ecf3b2176627060c90
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-21T15:45:58.788Z",
               "EditorCaption": ""

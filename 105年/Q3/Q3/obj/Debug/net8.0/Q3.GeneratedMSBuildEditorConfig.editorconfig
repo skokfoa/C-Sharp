@@ -8,7 +8,11 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Q3
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\User\Desktop\c#\105年\Q3\Q3\
+=======
+build_property.ProjectDir = C:\Users\宇\Desktop\C#\105年\Q3\Q3\
+>>>>>>> 5a2a54b002ebd7cd5ca1c2ecf3b2176627060c90
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
