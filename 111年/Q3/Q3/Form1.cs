@@ -63,28 +63,58 @@ namespace Q3
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for(int i = 0;i < 4; i++)
+            for(int i = 0;i < 2; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for(int j = 0;j < 4; j++)
                 {
-
+                    int temp = intcolor[3 - i, j];
+                    intcolor[3 - i, j] = intcolor[i, j];
+                    intcolor[i, j] = temp;
                 }
             }
+            draw();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    int temp = intcolor[i, 3 - j];
+                    intcolor[i, 3 - j] = intcolor[i, j];
+                    intcolor[i, j] = temp;
+                }
+            }
+            draw();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            int[,] temp = new int[4,4];
+            for(int i = 0;i < 4; i++)
+            {
+                for(int j = 0;j < 4; j++)
+                {
+                    temp[3 - j,i] = intcolor[i, j];
+                }
+            }
+            intcolor = temp;
+            draw();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            int[,] temp = new int[4, 4];
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    temp[j, 3 - i] = intcolor[i, j];
+                }
+            }
+            intcolor = temp;
+            draw();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -94,7 +124,7 @@ namespace Q3
 
         private void draw()
         {
-            Graphics g = panel1.CreateGraphics();
+            Graphics g = panel2.CreateGraphics();
             g.Clear(SystemColors.Control);
             for (int i = 0; i < 4; i++)
             {
