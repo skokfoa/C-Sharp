@@ -9,3 +9,14 @@ C:\Users\宇\Desktop\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.
 C:\Users\宇\Desktop\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.exe
 C:\Users\宇\Desktop\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.pdb
 C:\Users\宇\Desktop\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.exe.config
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\bin\Debug\字幕機.exe.config
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\bin\Debug\字幕機.exe
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\bin\Debug\字幕機.pdb
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.csproj.AssemblyReference.cache
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.exe.config
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.Form1.resources
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.Properties.Resources.resources
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.csproj.GenerateResource.cache
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.exe
+C:\Users\宇\Desktop\C#\全勝技藝競賽\字幕機\字幕機\obj\Debug\字幕機.pdb

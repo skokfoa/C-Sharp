@@ -188,7 +188,6 @@ namespace 字幕機
                 }
 
                 dec[i] = Convert.ToInt32(b, 2);
-                textBox3.Text += b + Environment.NewLine;
             }
 
             codes.Add(dec);
@@ -223,14 +222,41 @@ namespace 字幕機
 
             string mid = string.Empty;
 
-            for(int i = 0; i <= codes.Count; i++)
+            for (int i = 0; i < codes.Count; i++)
             {
-
+                mid = mid + "{" + string.Join(", ", b[i]).TrimEnd(new char[] { ' ' , ',' }) + "}\r\n,";
             }
 
+            mid.TrimEnd(new char[] { ' ', ',' });
+            mid = "{\r\n" + mid + "};";
+
             string code = "unsigned int i,j,k;\r\n" +
-                "unsigned int a[64];" +
-                "";
+                "unsigned int a[64];\r\n\r\n" +
+                $"unsigned int b[][64] = {mid}" + "\r\n" +
+                "unsigned int num = 11;\r\n" +
+                "void setup() {\r\n" +
+                "\tDDRF=0xFF;\r\n" +
+                "\tDDRK=0xFF;\r\n" +
+                "\tDDRC=0xFF;\r\n" +
+                "}\r\n" +
+                "void loop() {\r\n" +
+                "\tfor(k = 0;k <= num; k++){\r\n" +
+                "\t\tfor(j = 1;j <= 64; j++)\r\n" +
+                "\t\t\ta[j]=b[k][j]\r\n" +
+                "\t\tfor(j = 0;j <= 100 * b[k][0]; j++){\r\n" +
+                "\t\t\tfor(i = 0; i <= 63; i++){\r\n" +
+                "\t\t\t\tPORTC=i;\r\n" +
+                "\t\t\t\tPORTK=a[i] / 256;\r\n" +
+                "\t\t\t\tPORTF=a[i] % 256;\r\n" +
+                "\t\t\t\tdelayMicroseconds(100);\r\n" +
+                "\t\t\t\tPORTF=0;\r\n" +
+                "\t\t\t\tPORTK=0;\r\n" +
+                "\t\t\t}\r\n" +
+                "\t\t}\r\n" +
+                "\t\tdelay(500);\r\n" +
+                "\t}\r\n" +
+                "}";
+            textBox3.Text = code;
         }
 
         private void button9_Click(object sender, EventArgs e)//複製

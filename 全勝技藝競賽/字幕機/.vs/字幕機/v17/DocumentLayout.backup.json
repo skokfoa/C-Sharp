@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\",
+  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{641314C5-03F3-4F75-821A-5730E6DC6C2C}|\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F.csproj|c:\\users\\\u5B87\\desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{641314C5-03F3-4F75-821A-5730E6DC6C2C}|\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F.csproj|c:\\users\\\u5B87\\desktop\\c#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{641314C5-03F3-4F75-821A-5730E6DC6C2C}|\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F.csproj|solutionrelative:\u5B57\u5E55\u6A5F\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{641314C5-03F3-4F75-821A-5730E6DC6C2C}|\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F.csproj|c:\\users\\\u5B87\\desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{641314C5-03F3-4F75-821A-5730E6DC6C2C}|\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F.csproj|C:\\Users\\\u5B87\\Desktop\\C#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{641314C5-03F3-4F75-821A-5730E6DC6C2C}|\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F.csproj|solutionrelative:\u5B57\u5E55\u6A5F\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs",
               "RelativeDocumentMoniker": "\u5B57\u5E55\u6A5F\\Form1.cs",
-              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs*",
-              "RelativeToolTip": "\u5B57\u5E55\u6A5F\\Form1.cs*",
-              "ViewState": "AgIAALAAAAAAAAAAAAAAALkAAAA9AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs",
+              "RelativeToolTip": "\u5B57\u5E55\u6A5F\\Form1.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAD4v9sAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-30T06:50:46.41Z",
               "IsPinned": true,
@@ -38,10 +38,10 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [\u8A2D\u8A08]",
-              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs",
               "RelativeDocumentMoniker": "\u5B57\u5E55\u6A5F\\Form1.cs",
-              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs [\u8A2D\u8A08]*",
-              "RelativeToolTip": "\u5B57\u5E55\u6A5F\\Form1.cs [\u8A2D\u8A08]*",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5168\u52DD\u6280\u85DD\u7AF6\u8CFD\\\u5B57\u5E55\u6A5F\\\u5B57\u5E55\u6A5F\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "\u5B57\u5E55\u6A5F\\Form1.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-30T06:46:17.831Z",
               "EditorCaption": " [\u8A2D\u8A08]"
