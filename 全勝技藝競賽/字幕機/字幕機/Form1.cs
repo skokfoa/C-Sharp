@@ -228,11 +228,11 @@ namespace 字幕機
             }
 
             mid.TrimEnd(new char[] { ' ', ',' });
-            mid = "{\r\n" + mid + "};";
+            mid = "{\r\n" + mid.TrimEnd(',') + "};";
 
             string code = "unsigned int i,j,k;\r\n" +
                 "unsigned int a[64];\r\n\r\n" +
-                $"unsigned int b[][64] = {mid}" + "\r\n" +
+                $"unsigned int b[][65] = {mid}" + "\r\n" +
                 "unsigned int num = 11;\r\n" +
                 "void setup() {\r\n" +
                 "\tDDRF=0xFF;\r\n" +
@@ -242,7 +242,7 @@ namespace 字幕機
                 "void loop() {\r\n" +
                 "\tfor(k = 0;k <= num; k++){\r\n" +
                 "\t\tfor(j = 1;j <= 64; j++)\r\n" +
-                "\t\t\ta[j]=b[k][j]\r\n" +
+                "\t\t\ta[j]=b[k][j];\r\n" +
                 "\t\tfor(j = 0;j <= 100 * b[k][0]; j++){\r\n" +
                 "\t\t\tfor(i = 0; i <= 63; i++){\r\n" +
                 "\t\t\t\tPORTC=i;\r\n" +

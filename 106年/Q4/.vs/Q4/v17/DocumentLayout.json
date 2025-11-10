@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\C#\\106\u5E74\\Q4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7A4A32BE-6208-4A5E-AD34-5BA15BA6894D}|Q4\\Q4.csproj|c:\\users\\\u5B87\\desktop\\c#\\106\u5E74\\q4\\q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7A4A32BE-6208-4A5E-AD34-5BA15BA6894D}|Q4\\Q4.csproj|solutionrelative:q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A4A32BE-6208-4A5E-AD34-5BA15BA6894D}|Q4\\Q4.csproj|c:\\users\\\u5B87\\desktop\\c#\\106\u5E74\\q4\\q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A4A32BE-6208-4A5E-AD34-5BA15BA6894D}|Q4\\Q4.csproj|solutionrelative:q4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\106\u5E74\\Q4\\Q4\\Form1.cs",
+              "RelativeDocumentMoniker": "Q4\\Form1.cs",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\106\u5E74\\Q4\\Q4\\Form1.cs",
+              "RelativeToolTip": "Q4\\Form1.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAiwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T06:43:29.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\106\u5E74\\Q4\\Q4\\Form1.cs",
+              "RelativeDocumentMoniker": "Q4\\Form1.cs",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\106\u5E74\\Q4\\Q4\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Q4\\Form1.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T06:38:10.934Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

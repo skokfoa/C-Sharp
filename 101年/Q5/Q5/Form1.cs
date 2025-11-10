@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,8 +18,7 @@ namespace Q5
     {
         TextBox[] first;
         TextBox[] second;
-        Timer timer = new Timer();
-        byte[] input = new byte[9];
+        public static string[] ans = new string[8];
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +35,9 @@ namespace Q5
                 textBox13, textBox14, textBox15,
                 textBox16, textBox17, textBox18
             };
+
+            ans = new string[] { "123804765", "812703654", "781602543", "678501432"
+                                ,"567408321", "456307218", "345206187", "234105876"};
 
         }
 
@@ -56,7 +59,6 @@ namespace Q5
                     number = random.Next(0, 9);
                 } while (numbers.Contains(number));
                 numbers.Add(number);
-                input[i] = (byte)(number);
                 if (number != 0)
                 {
                     first[i].Text = number.ToString();
@@ -70,14 +72,62 @@ namespace Q5
 
         private void button2_Click(object sender, EventArgs e)
         {
-            timer = new Timer();
-            timer.Interval = 1000 / 2;
-            List<Node> path = solve(input);
-            if (path != null)
-                textBox20.Text = $"{path.Count}";
-            else
-                textBox20.Text = $"無解";
+            // ✅ 這裡決定你要從哪一組 TextBox 讀起點：first 或 second
+            TextBox[] src = second; // 如果要用亂數那組就改成 first
+
+            byte[] data = new byte[9];
+            for (int i = 0; i < src.Length; i++)
+                data[i] = src[i].Text != string.Empty ? byte.Parse(src[i].Text) : (byte)0;
+
+            // （建議）先檢查可解性
+            if (!IsSolvable(data))
+            {
+                textBox20.Text = "無解";
+                return;
+            }
+
+            Node start = new Node(data);
+            Node final = null;
+
+            Queue<Node> keep = new Queue<Node>();
+            HashSet<string> visit = new HashSet<string>();
+
+            keep.Enqueue(start);
+            visit.Add(Node.change(start.data)); // ✅ 入隊時就標記
+
+            while (keep.Count > 0)
+            {
+                Node now = keep.Dequeue();
+
+                if (check(now))
+                {
+                    final = now;
+                    break;
+                }
+
+                foreach (Node nxt in Move(now))
+                {
+                    string key = Node.change(nxt.data);
+                    if (visit.Add(key))
+                        keep.Enqueue(nxt);
+                }
+            }
+
+            if (final == null)
+            {
+                textBox20.Text = "找不到解"; // 或顯示步數為 0
+                return;
+            }
+
+            List<byte[]> path = find(final);
+            // path 目前是從目標 → 起點；如果你想顯示起點 → 目標：
+            path.Reverse();
+
+            textBox20.Text = path.Count.ToString();
+
+            // 你也可以把 path 的每一步填回 UI（略）
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -86,143 +136,106 @@ namespace Q5
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        List<Node> solve(byte[] source)
+        private static List<Node> Move(Node now)
         {
-            Queue<Node> queue = new Queue<Node>();
+            List<Node> output = new List<Node>();
+            var a = now.data;
 
-            HashSet<int> book = new HashSet<int>();
-            Node start = new Node(source, null);
+            // 找到 0 的位置（空白）
+            int pos = Array.IndexOf(a, (byte)0);
+            int x = pos % 3;
+            int y = pos / 3;
 
-            
-            queue.Enqueue(start);
-            book.Add(start.ToSequence());
+            // 四個方向：右、左、下、上
+            int[] dx = { 1, -1, 0, 0 };
+            int[] dy = { 0, 0, 1, -1 };
 
-            while (queue.Count > 0)
+            for (int k = 0; k < 4; k++)
             {
-                Node now = queue.Dequeue();
-                
-                if (now.check(now.status))
+                int nx = x + dx[k];
+                int ny = y + dy[k];
+                if (nx >= 0 && nx < 3 && ny >= 0 && ny < 3)
                 {
-                    return PathTrace(now);
-                }
-                List<Node> nextPush = move(now);
-                foreach (Node next in nextPush)
-                {
-                    int sequence = next.ToSequence();
-                    if (!book.Contains(sequence))
-                    {
-                        book.Add(sequence);
-                        queue.Enqueue(next);
-                    }
-                }
-                for(int i = 0;i < now.status.Length; ++i)
-                {
-                    first[i].Text = now.status[i].ToString();
+                    int npos = ny * 3 + nx;
+
+                    // 深拷貝，再交換
+                    byte[] b = (byte[])a.Clone();
+                    swap(ref b[pos], ref b[npos]);
+
+                    output.Add(new Node(b, now));
                 }
             }
 
-            return null;
-
+            return output;
         }
 
-        List<Node> move(Node now)
+        private static bool check(Node now)
         {
-            textBox21.Text += $"{Array.IndexOf<byte>(now.status, 0)}";
-            int index = Array.IndexOf<byte>(now.status, 0);
-            int col = index % 3;
-            int row = index / 3;
-
-
-            List<Node> nextPush = new List<Node>();
-            byte[] next;
-
-            if (row != 0) // top
+            string chs = Node.change(now.data);
+            foreach(string s in ans)
             {
-                next = (byte[])now.status.Clone();
-                swap(ref next[index], ref next[index - 3]);
-                nextPush.Add(new Node(next, now));
+                if (chs == s) return true;
             }
 
-            if (row != 2) // bottom
-            {
-                next = (byte[])now.status.Clone();
-                swap(ref next[index % next.Length], ref next[(index + 3) % next.Length]);
-                nextPush.Add(new Node(next, now));
-            }
-
-            if (col != 0) // left
-            {
-                next = (byte[])now.status.Clone();
-                swap(ref next[index % next.Length], ref next[(index - 1) % next.Length]);
-                nextPush.Add(new Node(next, now));
-            }
-
-            if (col != 2) // right
-            { 
-                next = (byte[])now.status.Clone();
-                swap(ref next[index % next.Length], ref next[(index + 1) % next.Length]);
-                nextPush.Add(new Node(next, now));
-            }
-
-            return nextPush;
+            return false;
         }
 
-        List<Node> PathTrace(Node now)
+        private static List<byte[]> find(Node now)
         {
-            // 回朔路徑
-            List<Node> path = new List<Node>();
-            while (now.father != null)
-            {
-                path.Add(now);
-                now = now.father;
-            }
-            path.Reverse();
-            return path;
+            List<byte[]> seq = new List<byte[]>();
+            for (Node cur = now; cur != null; cur = cur.father)
+                seq.Add(cur.data);
+            return seq;
         }
 
-        void swap<T> (ref T a,ref T b)
+        private static bool IsSolvable(byte[] a)
         {
-            T temp = a;
+            int inv = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                if (a[i] == 0) continue;
+                for (int j = i + 1; j < 9; j++)
+                {
+                    if (a[j] == 0) continue;
+                    if (a[i] > a[j]) inv++;
+                }
+            }
+            // 3×3 拼圖：反序數為偶數才可解
+            return (inv % 2 == 0);
+        }
+
+        private static void swap(ref byte a, ref byte b)
+        {
+            byte temp = a;
             a = b;
             b = temp;
         }
+    }
 
-        public class Node
+    public class Node
+    {
+        public byte[] data { get; set; }
+        public Node father { get; set; }
+
+        public Node(byte[] data, Node father = null)
         {
-            public byte[] status;
-            public Node father;
-            public Node(byte[] status, Node father)
-            {
-                this.status = status;
-                this.father = father;
-            }
-            public int ToSequence()
-            {
-                int result = 0;
-                for (int i = 0; i < status.Length; i++)
-                    result = result * 10 + status[i];
+            this.data = data;
+            this.father = father;
+        }
 
-                return result;
+        public static string change(byte[] data)
+        {
+            string output = string.Empty;
+
+            for(int i = 0; i < data.Length; i++)
+            {
+                output = output + data[i];
             }
 
-            public bool check(byte[] status)
-            {
-                byte[] ans = new byte[9]{1, 2, 3, 8, 0, 4, 7, 6, 5};
-                for (int i = 0; i < 8; i++)
-                {
-                    for(int j = 0; j < ans.Length; j++)
-                    {
-                        if ((status[j] + i) == ans[j])
-                        {
-                            ans[j] = 10; // 已經找到
-                            break;
-                        }
-                    }
-                }
-            }
+            return output;
         }
     }
 }
