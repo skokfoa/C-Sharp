@@ -1,70 +1,72 @@
 ﻿using System;
+using System.Linq;
 
 class Program
 {
     static void Main(string[] args)
     {
         int n = 10;
-        Console.WriteLine("日期系列");
-        int date = Console.ReadLine()
-            .Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)
-            .Length;
 
-        Console.WriteLine("價格系列::");
+        Console.WriteLine("價格系列：");
         var input = Console.ReadLine()
             .Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
-        if (input.Length != date)
+        int date = input.Length;
+
+        if (date < n)
         {
-            Console.WriteLine("輸入數目不相等");
+            Console.WriteLine("資料筆數要 >= 10");
             return;
         }
 
-        int[] x = Enumerable.Range(0,date).ToArray();
+        int[] x = Enumerable.Range(1, date).ToArray();
 
-        double[] price = input
-            .Select(double.Parse)
-            .ToArray();
+        double[] price = input.Select(double.Parse).ToArray();
 
-        double[] b = new double[date];
-        double[] a = new double[date];
+        double[] slope = new double[date];
+        double[] predict = new double[date];
 
-        for(int i = 0; i < date - n; i++)
+        for (int i = 0; i <= date - n - 1; i++)
         {
-            double dx = new double();
-            double dy = new double();
+            double xBar = (n + 1) / 2.0;
+            double yBar = 0.0;
 
-            
-
-            for(int j = i; j < i + n; j++)
+            for (int k = 0; k < n; k++)
             {
-                dx += x[j];
-                dy += price[j];
+                yBar += price[i + k];
+            }
+            yBar /= n;
+
+            double num = 0.0;
+            double den = 0.0;
+
+            for (int k = 0; k < n; k++)
+            {
+                double xk = k + 1;
+                double yk = price[i + k];
+
+                num += (xk - xBar) * (yk - yBar);
+                den += (xk - xBar) * (xk - xBar);
             }
 
-            dx /= n;
-            dy /= n;
+            double b = num / den;
+            double a = yBar - b * xBar;
 
-            double div = new double();
+            int lastDayIndex = i + n - 1;
+            int predictIndex = i + n;
 
-            for(int j = i; j < i + n; j++)
-            {
-                b[i] += (x[j] - dx) * (price[j] - dy);
-                div += Math.Pow(x[j] - dx, 2);
-            }
+            slope[lastDayIndex] = b;
 
-            b[i + 10] /= div;
-
-            if (i != date - 1)
-                a[i + 11] = dy - b[i];
+            double yNext = a + b * (n + 1);
+            predict[predictIndex] = yNext;
         }
 
-        Console.WriteLine("直線斜率b:");
-        Console.WriteLine(string.Join(" ", b.Select(x => $"{x:F2,3}")));
+        Console.WriteLine("直線斜率 b：");
+        Console.WriteLine(string.Join(" ",
+            slope.Select(v => $"{v,5:F1}")));
 
-        Console.WriteLine("價格預測:");
-        Console.WriteLine(string.Join(" ", a.Select(x => $"{x:F2,3}")));
-
-
+        Console.WriteLine("價格預測：");
+        Console.WriteLine(string.Join(" ",
+            predict.Select(v => $"{v,5:F1}")));
     }
 }
