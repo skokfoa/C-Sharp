@@ -1,0 +1,15 @@
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\bin\Debug\net8.0\Q5_faster.exe
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\bin\Debug\net8.0\Q5_faster.deps.json
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\bin\Debug\net8.0\Q5_faster.runtimeconfig.json
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\bin\Debug\net8.0\Q5_faster.dll
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\bin\Debug\net8.0\Q5_faster.pdb
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.AssemblyInfoInputs.cache
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.AssemblyInfo.cs
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.sourcelink.json
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.dll
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\refint\Q5_faster.dll
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.pdb
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\Q5_faster.genruntimeconfig.cache
+C:\Users\宇\Desktop\C#\107年\Q5_faster\Q5_faster\obj\Debug\net8.0\ref\Q5_faster.dll
