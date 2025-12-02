@@ -1,0 +1,11 @@
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\bin\Debug\狄劭宇_Q1.exe.config
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\bin\Debug\狄劭宇_Q1.exe
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\bin\Debug\狄劭宇_Q1.pdb
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.csproj.AssemblyReference.cache
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.Form1.resources
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.Properties.Resources.resources
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.csproj.GenerateResource.cache
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.exe
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.pdb
+C:\Users\宇\Desktop\狄劭宇_Contest\狄劭宇_Q1\狄劭宇_Q1\obj\Debug\狄劭宇_Q1.exe.config

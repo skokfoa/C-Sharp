@@ -1,0 +1,11 @@
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\bin\Debug\Q3.exe.config
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\bin\Debug\Q3.exe
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\bin\Debug\Q3.pdb
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.csproj.AssemblyReference.cache
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.Form1.resources
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.Properties.Resources.resources
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.csproj.GenerateResource.cache
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.exe
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.pdb
+C:\Users\宇\Desktop\C#\北市軟體設計競賽_歷屆\96年\Q3\Q3\obj\Debug\Q3.exe.config
