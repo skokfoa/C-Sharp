@@ -1,296 +1,740 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Q4
 {
     public partial class Form1 : Form
     {
-        // ====== 狀態與設定 ======
-        private const int N = 11;
-        private int between = 40;                 // 格與格間距
-        private Point[,] points = new Point[N, N];
-        private CellType[,] grid = new CellType[N, N]; // 格點狀態
-        private byte paint = 0;                   // 2=Obstacle, 3=Start, 4=Target
-        private readonly Random rand = new Random();
-
-        private (int x, int y) start = (-1, -1);
-        private (int x, int y) target = (-1, -1);
-        private readonly List<Point> path = new List<Point>(); // 以格點中心為座標
-
-        private enum CellType { Empty, Obstacle, Start, Target }
+        public int[,] state;
+        public int dot;
 
         public Form1()
         {
             InitializeComponent();
+            
+            dot = 0;
+            state = new int[11, 11];
 
-            // panel1 開雙緩衝，減少閃爍
-            typeof(Panel).GetProperty("DoubleBuffered",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)!
-                .SetValue(panel1, true);
-
-            // 初始清空
-            ClearGrid();
-            BuildPoints();
+            using (Graphics g = panel1.CreateGraphics())
+            {
+                init(g);
+            }
         }
 
-        // ====== 事件 ======
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void init(Graphics g)
         {
-            var g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            Pen p = new Pen(Color.Black, 1);
+            g.Clear(SystemColors.Control);
 
-            // 畫格線
-            using (var pen = new Pen(Color.Black))
+            for (int i = 0; i < 11; i++)
             {
-                for (int i = 0; i < N; i++)
+                g.DrawLine(p, 10, 10 + i * 40, 420 - 10, 10 + i * 40);
+                g.DrawLine(p, 10 + i * 40, 10, 10 + i * 40, 420 - 10);
+            }
+        }
+
+        private void drawstart(Point a, Graphics g)
+        {
+            Brush clean = new SolidBrush(SystemColors.Control);
+            Brush b = new SolidBrush(Color.Blue);
+            Brush w = new SolidBrush(Color.White);
+            int gap = 20;
+
+            g.FillRectangle(clean, a.X - gap / 2, a.Y - gap / 2, gap, gap);
+            g.FillEllipse(b, a.X - gap / 2,a.Y - gap / 2, gap, gap);
+            g.FillEllipse(w, a.X - (gap - 2) / 2, a.Y - (gap - 2) / 2, gap - 2, gap - 2);
+        }
+
+        private void drawend(Point a, Graphics g) 
+        {
+            
+            Brush clean = new SolidBrush(SystemColors.Control);
+            Brush r = new SolidBrush(Color.Red);
+            int gap = 20;
+
+            g.FillRectangle(clean, a.X - gap / 2, a.Y - gap / 2, gap, gap);
+            g.FillRectangle(r, a.X - gap / 2, a.Y - gap / 2, gap, gap);
+            g.FillRectangle(clean, a.X - gap / 2 + 1, a.Y - gap / 2 + 1, gap - 2, gap - 2);
+        }
+
+        private void drawblock(Point a, Graphics g)
+        {
+            Brush clean = new SolidBrush(SystemColors.Control);
+            Brush b = new SolidBrush(Color.Black);
+            int gap = 20;
+
+            g.FillRectangle(clean, a.X - gap / 2, a.Y - gap / 2, gap, gap);
+            g.FillEllipse(b, a.X - gap / 2, a.Y - gap / 2, gap, gap);
+        }
+
+        private void drawclear(Point a)
+        {
+            using (Graphics g = panel1.CreateGraphics())
+            {
+                Brush clean = new SolidBrush(SystemColors.Control);
+                Pen p = new Pen (Color.Black, 1);
+
+                int gap = 20;
+                g.FillRectangle(clean, a.X - gap / 2, a.Y - gap / 2, gap, gap);
+                g.DrawLine(p, a.X - gap, a.Y, a.X + gap, a.Y);
+                g.DrawLine(p, a.X, a.Y - gap, a.X, a.Y + gap);
+            }
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            Point now = panel1.PointToClient(Cursor.Position);
+            Graphics g = panel1.CreateGraphics();
+
+            int x = now.X;
+            int y = now.Y;
+
+            x = ((x) / 40) * 40 + 10;
+            y = ((y) / 40) * 40 + 10;
+
+            now = new Point(x, y);
+
+            int statex = (now.X - 10) / 40;
+            int statey = (now.Y - 10) / 40;
+
+            if (dot == 0)
+            {
+                switch(state[statex, statey])
                 {
-                    g.DrawLine(pen, points[0, i], points[N - 1, i]);
-                    g.DrawLine(pen, points[i, 0], points[i, N - 1]);
+                    case 1:
+                        dot = 1;
+                        break;
+                    case 2:
+                        dot = 2;
+                        break;
+                    case -1:
+                        dot = -1;
+                        break;
+                }
+                state[statex, statey] = 0;
+                if (dot != 0)
+                {
+                    drawclear(now);
+                }
+                
+                return;
+            }
+            else
+            {
+                if (state[statex, statey] != 0) return;
+
+                switch (dot)
+                {
+                    case 1:
+                        drawstart(now, g);
+                        state[statex, statey] = 1;
+                        dot = 0;
+                        break;
+                    case 2:
+                        drawend(now, g);
+                        state[statex, statey] = 2;
+                        dot = 0;
+                        break;
+                    case -1:
+                        drawblock(now, g);
+                        state[statex, statey] = -1;
+                        dot = 0;
+                        break;
+                    default:
+                        dot = 0;
+                        break;
                 }
             }
 
-            // 畫每個格點的圖示
-            for (int x = 0; x < N; x++)
-            {
-                for (int y = 0; y < N; y++)
-                {
-                    switch (grid[x, y])
-                    {
-                        case CellType.Obstacle: DrawBlock(g, points[x, y]); break;
-                        case CellType.Start: DrawStart(g, points[x, y]); break;
-                        case CellType.Target: DrawEnd(g, points[x, y]); break;
-                    }
-                }
-            }
-
-            // 畫最短路徑（藍線）
-            if (path.Count > 1)
-            {
-                using var penPath = new Pen(Color.Blue, 3);
-                for (int i = 1; i < path.Count; i++)
-                    g.DrawLine(penPath, path[i - 1], path[i]);
-            }
+            if (comboBox1.SelectedIndex == 0)
+                BFS();
+            else if (comboBox1.SelectedIndex == 1)
+                DFS();
+            else if (comboBox1.SelectedIndex == 2)
+                Astar();
+            else
+                MessageBox.Show("請選擇演算法");
         }
 
-        private void panel1_MouseClick(object sender, MouseEventArgs e)
-        {
-            // 找到點擊到的格點（以 between/2 為捕捉區）
-            for (int x = 0; x < N; x++)
-            {
-                for (int y = 0; y < N; y++)
-                {
-                    if (Math.Abs(e.X - points[x, y].X) < between / 2 &&
-                        Math.Abs(e.Y - points[x, y].Y) < between / 2)
-                    {
-                        switch (paint)
-                        {
-                            case 2: // Obstacle：切換空 <-> 障礙（但不能蓋 S/T）
-                                if (grid[x, y] == CellType.Empty) grid[x, y] = CellType.Obstacle;
-                                else if (grid[x, y] == CellType.Obstacle) grid[x, y] = CellType.Empty;
-                                break;
-
-                            case 3: // Start：全域只允許一個
-                                // 清掉舊的
-                                if (start.x >= 0) grid[start.x, start.y] = CellType.Empty;
-                                // 不能放在 Target / Obstacle 上
-                                if (grid[x, y] == CellType.Target || grid[x, y] == CellType.Obstacle) break;
-                                grid[x, y] = CellType.Start;
-                                start = (x, y);
-                                break;
-
-                            case 4: // Target：全域只允許一個
-                                if (target.x >= 0) grid[target.x, target.y] = CellType.Empty;
-                                if (grid[x, y] == CellType.Start || grid[x, y] == CellType.Obstacle) break;
-                                grid[x, y] = CellType.Target;
-                                target = (x, y);
-                                break;
-                        }
-
-                        ReplanPath();          // 每次變更後重新規劃
-                        panel1.Invalidate();   // 觸發重繪
-                        return;
-                    }
-                }
-            }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            var center = new Point(panel2.Width / 2, panel2.Height / 2);
-            DrawBlock(e.Graphics, center);
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            var center = new Point(panel3.Width / 2, panel3.Height / 2);
-            DrawStart(e.Graphics, center);
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-            var center = new Point(panel4.Width / 2, panel4.Height / 2);
-            DrawEnd(e.Graphics, center);
-        }
-
-        private void label2_Click(object sender, EventArgs e) => paint = 2; // Obstacle
-        private void label3_Click(object sender, EventArgs e) => paint = 3; // Start
-        private void label4_Click(object sender, EventArgs e) => paint = 4; // Target
-
-        // Initialization
         private void button1_Click(object sender, EventArgs e)
         {
-            InitializeRandom();
-        }
+            label5.Text = "";
+            state = new int[11, 11];
 
-        // Exit
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+            Random rand = new Random();
 
-        // ====== 核心邏輯 ======
+            Point start = new Point();
+            Point end = new Point();
+            HashSet<Point> block = new HashSet<Point>();
 
-        private void BuildPoints()
-        {
-            int margin = 5;
-            for (int x = 0; x < N; x++)
-                for (int y = 0; y < N; y++)
-                    points[x, y] = new Point(margin + between * x, margin + between * y);
-        }
+            start = new Point(rand.Next(0, 11) * 40 + 10, rand.Next(0, 11) * 40 + 10);
+            end   = new Point(rand.Next(0, 11) * 40 + 10, rand.Next(0, 11) * 40 + 10);
 
-        private void ClearGrid()
-        {
-            for (int x = 0; x < N; x++)
-                for (int y = 0; y < N; y++)
-                    grid[x, y] = CellType.Empty;
-            start = target = (-1, -1);
-            path.Clear();
-        }
-
-        private void InitializeRandom()
-        {
-            ClearGrid();
-
-            // 32 個障礙
-            int count = 0;
-            while (count < 32)
+            while (block.Count < 32)
             {
-                int x = rand.Next(N), y = rand.Next(N);
-                if (grid[x, y] == CellType.Empty)
+                int x = rand.Next(0, 11) * 40 + 10;
+                int y = rand.Next(0, 11) * 40 + 10;
+
+                if (x == start.X && y == start.Y) continue;
+                if (x == end.X && y == end.Y)     continue;
+
+                block.Add(new Point(x, y));
+            }
+
+            using (Graphics g = panel1.CreateGraphics())
+            {
+                init(g);
+                drawstart(start, g);
+                drawend(end, g);
+
+                foreach (Point b in block)
                 {
-                    grid[x, y] = CellType.Obstacle;
-                    count++;
+                    drawblock(b, g);
                 }
             }
 
-            // 放 S
-            while (true)
+            start = new Point((start.X - 10) / 40, (start.Y - 10) / 40);
+            end = new Point((end.X - 10) / 40, (end.Y - 10) / 40);
+
+            block = new HashSet<Point>(block.Select(p => new Point((p.X - 10) / 40, (p.Y - 10) / 40)));
+
+            state[start.X, start.Y] = 1;
+            state[end.X, end.Y] = 2;
+            foreach (Point b in block)
             {
-                int x = rand.Next(N), y = rand.Next(N);
-                if (grid[x, y] == CellType.Empty)
+                state[b.X, b.Y] = -1;
+            }
+
+            if (comboBox1.SelectedIndex == 0)
+                BFS();
+            else if (comboBox1.SelectedIndex == 1)
+                DFS();
+            else if (comboBox1.SelectedIndex == 2)
+                Astar();
+            else
+                MessageBox.Show("請選擇演算法");
+        }
+
+        private void BFS()
+        {
+            bool ifstart = false;
+            for(int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 11; j++)
                 {
-                    grid[x, y] = CellType.Start;
-                    start = (x, y);
-                    break;
+                    if(state[i, j] != 0)
+                    {
+                        ifstart = true;
+                        break;
+                    }
                 }
             }
 
-            // 放 T
-            while (true)
+            if (!ifstart) return;
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            label5.Text = "";
+            Node start = new Node(new Point());
+            Point end = new Point();
+
+            Node result = new Node(new Point());
+
+            for (int i = 0; i < 11; i++)
             {
-                int x = rand.Next(N), y = rand.Next(N);
-                if (grid[x, y] == CellType.Empty)
+                for (int j = 0; j < 11; j++)
                 {
-                    grid[x, y] = CellType.Target;
-                    target = (x, y);
-                    break;
+                    if (state[i, j] == 1)
+                    {
+                        start = new Node(new Point(i, j));
+                    }
+                    else if (state[i, j] == 2)
+                    {
+                        end = new Point(i, j);
+                    }
                 }
             }
 
-            var ok = ReplanPath();
-            MessageBox.Show(ok ? "規劃路線成功" : "規劃路線失敗");
-            panel1.Invalidate();
+            Queue<Node> q = new Queue<Node>();
+            HashSet<Point> visited = new HashSet<Point>();
+            
+            q.Enqueue(start);
+            visited.Add(start.p);
+
+            while(q.Count > 0)
+            {
+                Node now = q.Dequeue();
+
+                if (now.p == end) 
+                {
+                    result = now;
+                    break; 
+                }
+
+                List<Node> move = new List<Node>();
+                move = Move(now);
+
+                foreach (Node dir in move)
+                {
+                    Point nextp = dir.p;
+                    if (visited.Contains(nextp))
+                        continue;
+                    q.Enqueue(dir);
+                    visited.Add(nextp);
+                }
+            }
+
+            if (result.p != end)
+            {
+                label5.Text = "規劃路線失敗";
+                return;
+            }
+
+            label5.Text = "規劃路線成功";
+
+            using (Graphics g = panel1.CreateGraphics())
+            {
+                g.Clear(SystemColors.Control);
+                init(g);
+
+                for(int i = 0; i < 11; i++)
+                {
+                    for (int j = 0; j < 11; j++)
+                    {
+                        if (state[i, j] == 1)
+                            drawstart(new Point(i * 40 + 10, j * 40 + 10), g);
+                        else if (state[i, j] == 2)
+                            drawend(new Point(i * 40 + 10, j * 40 + 10), g);
+                        else if (state[i, j] == -1)
+                            drawblock(new Point(i * 40 + 10, j * 40 + 10), g);
+                    }
+                }
+
+                Pen p = new Pen(Color.Blue, 3);
+                
+                List<Point> path = new List<Point>();
+                path = this.Path(result);
+
+                if (path.Count > 0)
+                {
+                    for (int i = 0; i < path.Count - 1; i++)
+                    {
+                        Point a = new Point(path[i].X * 40 + 10, path[i].Y * 40 + 10);
+                        Point b = new Point(path[i + 1].X * 40 + 10, path[i + 1].Y * 40 + 10);
+                        g.DrawLine(p, a, b);
+                    }
+                }
+            }
+
+            sw.Stop();
+            label6.Text = $"{sw.ElapsedMilliseconds}ms";
         }
 
-        private bool ReplanPath()
+        private void DFS()
         {
-            path.Clear();
-            if (start.x < 0 || target.x < 0) return false;
-            return BfsAndBuildPath(start.x, start.y, target.x, target.y);
-        }
+            bool ifstart = false;
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 11; j++)
+                {
+                    if (state[i, j] != 0)
+                    {
+                        ifstart = true;
+                        break;
+                    }
+                }
+            }
 
-        // BFS + 回溯路徑（4 方向）
-        private bool BfsAndBuildPath(int sx, int sy, int tx, int ty)
-        {
-            var q = new Queue<(int x, int y)>();
-            var prev = new (int x, int y)?[N, N];
-            var vis = new bool[N, N];
+            if (!ifstart) return;
 
-            q.Enqueue((sx, sy));
-            vis[sx, sy] = true;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
 
-            int[] dx = { 1, -1, 0, 0 };
-            int[] dy = { 0, 0, 1, -1 };
+            label5.Text = "";
+            Node start = new Node(new Point());
+            Point end = new Point();
+
+            Node result = new Node(new Point());
+
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 11; j++)
+                {
+                    if (state[i, j] == 1)
+                    {
+                        start = new Node(new Point(i, j));
+                    }
+                    else if (state[i, j] == 2)
+                    {
+                        end = new Point(i, j);
+                    }
+                }
+            }
+
+            Stack<Node> q = new Stack<Node>();
+            HashSet<Point> visited = new HashSet<Point>();
+
+            q.Push(start);
+            visited.Add(start.p);
 
             while (q.Count > 0)
             {
-                var (x, y) = q.Dequeue();
-                if (x == tx && y == ty)
-                {
-                    // 回溯
-                    var cur = (x, y);
-                    var stack = new Stack<Point>();
-                    while (!(cur.x == sx && cur.y == sy))
-                    {
-                        stack.Push(points[cur.x, cur.y]);
-                        cur = prev[cur.x, cur.y]!.Value;
-                    }
-                    stack.Push(points[sx, sy]);
+                Node now = q.Pop();
 
-                    path.Clear();
-                    while (stack.Count > 0) path.Add(stack.Pop());
-                    return true;
+                if (now.p == end)
+                {
+                    result = now;
+                    break;
                 }
+
+                List<Node> move = new List<Node>();
+                move = Move(now);
+
+                foreach (Node dir in move)
+                {
+                    Point nextp = dir.p;
+                    if (visited.Contains(nextp))
+                        continue;
+                    q.Push(dir);
+                    visited.Add(nextp);
+                }
+            }
+
+            if (result.p != end)
+            {
+                label5.Text = "規劃路線失敗";
+                return;
+            }
+
+            label5.Text = "規劃路線成功";
+
+            using (Graphics g = panel1.CreateGraphics())
+            {
+                g.Clear(SystemColors.Control);
+                init(g);
+
+                for (int i = 0; i < 11; i++)
+                {
+                    for (int j = 0; j < 11; j++)
+                    {
+                        if (state[i, j] == 1)
+                            drawstart(new Point(i * 40 + 10, j * 40 + 10), g);
+                        else if (state[i, j] == 2)
+                            drawend(new Point(i * 40 + 10, j * 40 + 10), g);
+                        else if (state[i, j] == -1)
+                            drawblock(new Point(i * 40 + 10, j * 40 + 10), g);
+                    }
+                }
+
+                Pen p = new Pen(Color.Blue, 3);
+
+                List<Point> path = new List<Point>();
+                path = this.Path(result);
+
+                if (path.Count > 0)
+                {
+                    for (int i = 0; i < path.Count - 1; i++)
+                    {
+                        Point a = new Point(path[i].X * 40 + 10, path[i].Y * 40 + 10);
+                        Point b = new Point(path[i + 1].X * 40 + 10, path[i + 1].Y * 40 + 10);
+                        g.DrawLine(p, a, b);
+                    }
+                }
+            }
+
+            sw.Stop();
+            label6.Text = $"{sw.ElapsedMilliseconds}ms";
+        }
+
+        private void Astar()
+        {
+            // 確認有起點/終點資料
+            bool ifstart = false;
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 11; j++)
+                {
+                    if (state[i, j] != 0)
+                    {
+                        ifstart = true;
+                        break;
+                    }
+                }
+                if (ifstart) break;
+            }
+
+            if (!ifstart) return;
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            label5.Text = "";
+
+            // 找起點跟終點
+            Point startP = new Point();
+            Point end = new Point();
+
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 11; j++)
+                {
+                    if (state[i, j] == 1)
+                    {
+                        startP = new Point(i, j);
+                    }
+                    else if (state[i, j] == 2)
+                    {
+                        end = new Point(i, j);
+                    }
+                }
+            }
+
+            
+
+            ANode start = new ANode(startP, null, 0, 0);
+            start.fcost = Heuristic(start.p, end);
+
+            List<ANode> open = new List<ANode>();      // 開放列表
+            HashSet<Point> closed = new HashSet<Point>(); // 關閉集合
+
+            open.Add(start);
+
+            ANode result = null;
+
+            while (open.Count > 0)
+            {
+                // 1. 取出 fcost 最小的點當前擴展
+                ANode current = open[0];
+                foreach (ANode node in open)
+                {
+                    if (node.fcost < current.fcost ||
+                        (node.fcost == current.fcost && node.cost < current.cost))
+                    {
+                        current = node;
+                    }
+                }
+
+                // 如果已經到終點，就結束
+                if (current.p == end)
+                {
+                    result = current;
+                    break;
+                }
+
+                open.Remove(current);
+                closed.Add(current.p);
+
+                int x = current.p.X;
+                int y = current.p.Y;
+
+                // 四個方向
+                int[,] dirs = new int[,] { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 
                 for (int k = 0; k < 4; k++)
                 {
-                    int nx = x + dx[k], ny = y + dy[k];
-                    if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
-                    if (vis[nx, ny]) continue;
-                    if (grid[nx, ny] == CellType.Obstacle) continue;
+                    int nx = x + dirs[k, 0];
+                    int ny = y + dirs[k, 1];
 
-                    vis[nx, ny] = true;
-                    prev[nx, ny] = (x, y);
-                    q.Enqueue((nx, ny));
+                    // 邊界
+                    if (nx < 0 || nx >= 11 || ny < 0 || ny >= 11) continue;
+                    // 障礙物
+                    if (state[nx, ny] == -1) continue;
+
+                    Point np = new Point(nx, ny);
+
+                    // 已經在 closed 裡就不用再看
+                    if (closed.Contains(np)) continue;
+
+                    int newCost = current.cost + 1; // 每一步成本 = 1
+
+                    // 看看 open 裡有沒有這個點
+                    ANode exist = open.FirstOrDefault(n => n.p == np);
+
+                    if (exist != null)
+                    {
+                        // 如果新的成本比較小，就更新它（更好的路徑）
+                        if (newCost < exist.cost)
+                        {
+                            exist.cost = newCost;
+                            exist.father = current;
+                            exist.fcost = newCost + Heuristic(np, end);
+                        }
+                    }
+                    else
+                    {
+                        // 新節點
+                        ANode next = new ANode(np, current, newCost, newCost + Heuristic(np, end));
+                        open.Add(next);
+                    }
                 }
             }
-            return false;
+
+            if (result == null)
+            {
+                sw.Stop();
+                label5.Text = "規劃路線失敗";
+                label6.Text = $"{sw.ElapsedMilliseconds}ms";
+                return;
+            }
+
+            label5.Text = "規劃路線成功";
+
+            // 畫圖
+            using (Graphics g = panel1.CreateGraphics())
+            {
+                g.Clear(SystemColors.Control);
+                init(g);
+
+                // 先把所有點畫回去
+                for (int i = 0; i < 11; i++)
+                {
+                    for (int j = 0; j < 11; j++)
+                    {
+                        if (state[i, j] == 1)
+                            drawstart(new Point(i * 40 + 10, j * 40 + 10), g);
+                        else if (state[i, j] == 2)
+                            drawend(new Point(i * 40 + 10, j * 40 + 10), g);
+                        else if (state[i, j] == -1)
+                            drawblock(new Point(i * 40 + 10, j * 40 + 10), g);
+                    }
+                }
+
+                Pen p = new Pen(Color.Blue, 3);
+
+                List<Point> path = PathA(result);
+
+                if (path.Count > 0)
+                {
+                    for (int i = 0; i < path.Count - 1; i++)
+                    {
+                        Point a = new Point(path[i].X * 40 + 10, path[i].Y * 40 + 10);
+                        Point b = new Point(path[i + 1].X * 40 + 10, path[i + 1].Y * 40 + 10);
+                        g.DrawLine(p, a, b);
+                    }
+                }
+            }
+
+            sw.Stop();
+            label6.Text = $"{sw.ElapsedMilliseconds}ms";
+        }//chatgpt
+
+        private List<Node> Move(Node now)
+        {
+            List<Node> moves = new List<Node>();
+
+            int x = now.p.X;
+            int y = now.p.Y;
+
+            if (x + 1 < 11 && state[x + 1, y] != -1)
+            {
+                moves.Add(new Node(new Point(x + 1, y),now));
+            }
+
+            if (x - 1 >= 0 && state[x - 1, y] != -1)
+            {
+                moves.Add(new Node(new Point(x - 1, y), now));
+            }
+
+            if (y + 1 < 11 && state[x, y + 1] != -1)
+            {
+                moves.Add(new Node(new Point(x, y + 1), now));
+            }
+
+            if (y - 1 >= 0 && state[x, y - 1] != -1)
+            {
+                moves.Add(new Node(new Point(x, y - 1), now));
+            }
+
+            return moves;
         }
 
-        // ====== 繪圖小工具（吃 Graphics） ======
-
-        private void DrawBlock(Graphics g, Point center)
+        private List<Point> Path(Node current)
         {
-            using var brush = new SolidBrush(Color.Black);
-            int d = 18;
-            g.FillEllipse(brush, center.X - d / 2, center.Y - d / 2, d, d);
+            List<Point> total_path = new List<Point>();
+            total_path.Add(current.p);
+            while (current.father != null)
+            {
+                current = current.father;
+                total_path.Add(current.p);
+            }
+            total_path.Reverse();
+            return total_path;
         }
 
-        private void DrawStart(Graphics g, Point center)
+        private void button2_Click(object sender, EventArgs e)
         {
-            using var pen = new Pen(Color.Blue, 3);
-            int d = 16;
-            g.DrawEllipse(pen, center.X - d / 2, center.Y - d / 2, d, d);
+            this.Close();
         }
 
-        private void DrawEnd(Graphics g, Point center)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            using var pen = new Pen(Color.Red, 3);
-            int d = 16;
-            g.DrawRectangle(pen, center.X - d / 2, center.Y - d / 2, d, d);
+            Graphics g = e.Graphics;
+            init(g);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+                BFS();
+            else if (comboBox1.SelectedIndex == 1)
+                DFS();
+            else if (comboBox1.SelectedIndex == 2)
+                Astar();
+            else
+                MessageBox.Show("請選擇演算法");
+        }
+
+        private int Heuristic(Point a, Point b) => Math.Abs(a.X - b.X) + Math.Abs(a.Y - b.Y); //chatgpt
+
+        private List<Point> PathA(ANode current)
+        {
+            List<Point> total_path = new List<Point>();
+            total_path.Add(current.p);
+            while (current.father != null)
+            {
+                current = current.father;
+                total_path.Add(current.p);
+            }
+            total_path.Reverse();
+            return total_path;
+        } //chatgpt
+    }
+
+    class ANode
+    {
+        public Point p { get; set; }
+        public ANode father { get; set; }
+        public int cost { get; set; }
+        public int fcost { get; set; }
+
+        public ANode(Point p, ANode father, int cost, int fcost)
+        {
+            this.p = p;
+            this.father = father;
+            this.cost = cost;
+            this.fcost = fcost;
+        }
+    }
+
+    class Node
+    {
+        public Point p { get; set; }
+        public Node father { get; set; }
+        
+        public Node(Point p, Node father = null)
+        {
+            this.p = p;
+            this.father = father;
         }
     }
 }

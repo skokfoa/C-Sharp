@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\C#\\110\u5E74\\Q4\\",
+  "WorkspaceRootPath": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5DE5\u79D1\u6280\u85DD\u7AF6\u8CFD_\u6B77\u5C46\\110\u5E74\\Q4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB6AE3D3-354F-4E3D-AF49-D974E7F9406B}|Q4\\Q4.csproj|c:\\users\\\u5B87\\desktop\\c#\\110\u5E74\\q4\\q4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB6AE3D3-354F-4E3D-AF49-D974E7F9406B}|Q4\\Q4.csproj|c:\\users\\\u5B87\\desktop\\c#\\\u5DE5\u79D1\u6280\u85DD\u7AF6\u8CFD_\u6B77\u5C46\\110\u5E74\\q4\\q4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB6AE3D3-354F-4E3D-AF49-D974E7F9406B}|Q4\\Q4.csproj|solutionrelative:q4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\110\u5E74\\Q4\\Q4\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5DE5\u79D1\u6280\u85DD\u7AF6\u8CFD_\u6B77\u5C46\\110\u5E74\\Q4\\Q4\\Program.cs",
               "RelativeDocumentMoniker": "Q4\\Program.cs",
-              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\110\u5E74\\Q4\\Q4\\Program.cs",
+              "ToolTip": "C:\\Users\\\u5B87\\Desktop\\C#\\\u5DE5\u79D1\u6280\u85DD\u7AF6\u8CFD_\u6B77\u5C46\\110\u5E74\\Q4\\Q4\\Program.cs",
               "RelativeToolTip": "Q4\\Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAAC0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAADgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T02:26:12.47Z",
               "EditorCaption": ""

@@ -75,9 +75,25 @@ namespace Q1
             {
                 while (a % i == 0 && b % i == 0)
                 {
-
+                    a = a / i;
+                    b = b / i;
+                    gcd.Add((a, b, i));
                 }
             }
+
+            int max = gcd
+                .Skip(1)
+                .Select(x => (int)x.Item3)
+                .Aggregate(1, (x, y) => x * y);
+
+            int min = gcd.Last().Item1 *
+                gcd.Last().Item2 * max;
+
+            textBox5.Text = string.Join("\r\n-----------------------------\r\n", gcd
+                .Select(x => $"{x.Item3,-5} {x.Item1,-5} {x.Item2,-5}"));
+
+            label6.Text = max.ToString();
+            label7.Text = min.ToString();
         }
     }
 }

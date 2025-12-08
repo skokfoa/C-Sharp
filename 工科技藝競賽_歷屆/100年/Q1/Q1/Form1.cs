@@ -21,19 +21,48 @@ namespace Q1
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox_TextChanged(object sender, EventArgs e)
         {
-            
+            TextBox tb = (TextBox)sender;
+            string input = tb.Text;
+            string upper = input.ToUpper();
+
+            if (input != upper)
+            {
+                int pos = tb.SelectionStart;
+                tb.Text = upper;
+                tb.SelectionStart = pos;
+            }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            
+            if(textBox1.Text.Length < 1)
+            {
+                MessageBox.Show("請輸入N,3 <= N <= 10");
+                return;
+            }
+            N = int.Parse(textBox1.Text);
+            if (N < 3 || N > 10)
+            {
+                MessageBox.Show("請重新輸入,3 <= N <= 10");
+                textBox1.Text = string.Empty;
+            }
+
+            color = textBox2.Text;
+            if (textBox2.Text.Length > 1)
+            {
+                MessageBox.Show("輸入單一字母就好");
+                char[] chars = textBox2.Text.ToCharArray();
+                textBox2.Text = chars[0].ToString();
+            }
+            draw = true;
+            panel1.Invalidate();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e,int a)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            if(draw)
+            if (draw)
             {
                 Graphics g = e.Graphics;
                 Pen pens;
@@ -81,31 +110,6 @@ namespace Q1
                     }
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(textBox1.Text.Length < 1)
-            {
-                MessageBox.Show("請輸入N,3 <= N <= 10");
-                return;
-            }
-            N = int.Parse(textBox1.Text);
-            if (N < 3 || N > 10)
-            {
-                MessageBox.Show("請重新輸入,3 <= N <= 10");
-                textBox1.Text = string.Empty;
-            }
-
-            color = textBox2.Text;
-            if (textBox2.Text.Length > 1)
-            {
-                MessageBox.Show("輸入單一字母就好");
-                char[] chars = textBox2.Text.ToCharArray();
-                textBox2.Text = chars[0].ToString();
-            }
-            draw = true;
-            panel1.Invalidate();
         }
     }
 }
