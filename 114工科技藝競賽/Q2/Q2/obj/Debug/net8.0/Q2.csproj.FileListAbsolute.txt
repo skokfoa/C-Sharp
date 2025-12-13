@@ -1,0 +1,14 @@
+D:\狄劭宇\Q2\Q2\bin\Debug\net8.0\Q2.exe
+D:\狄劭宇\Q2\Q2\bin\Debug\net8.0\Q2.deps.json
+D:\狄劭宇\Q2\Q2\bin\Debug\net8.0\Q2.runtimeconfig.json
+D:\狄劭宇\Q2\Q2\bin\Debug\net8.0\Q2.dll
+D:\狄劭宇\Q2\Q2\bin\Debug\net8.0\Q2.pdb
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.GeneratedMSBuildEditorConfig.editorconfig
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.AssemblyInfoInputs.cache
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.AssemblyInfo.cs
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.csproj.CoreCompileInputs.cache
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.dll
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\refint\Q2.dll
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.pdb
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\Q2.genruntimeconfig.cache
+D:\狄劭宇\Q2\Q2\obj\Debug\net8.0\ref\Q2.dll
