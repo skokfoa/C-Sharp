@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tree_try", "tree_try\tree_try.csproj", "{D471CB8D-DE51-4421-9F5B-09A2A287FD30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D471CB8D-DE51-4421-9F5B-09A2A287FD30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D471CB8D-DE51-4421-9F5B-09A2A287FD30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D471CB8D-DE51-4421-9F5B-09A2A287FD30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D471CB8D-DE51-4421-9F5B-09A2A287FD30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40BEB990-1B26-430B-8C1C-4310439AF3E0}
+	EndGlobalSection
+EndGlobal

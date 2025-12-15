@@ -1,0 +1,11 @@
+C:\Users\宇\Desktop\learn\Base\Base\bin\Debug\Base.exe.config
+C:\Users\宇\Desktop\learn\Base\Base\bin\Debug\Base.exe
+C:\Users\宇\Desktop\learn\Base\Base\bin\Debug\Base.pdb
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.csproj.AssemblyReference.cache
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.Form1.resources
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.Properties.Resources.resources
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.csproj.GenerateResource.cache
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.exe
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.pdb
+C:\Users\宇\Desktop\learn\Base\Base\obj\Debug\Base.exe.config

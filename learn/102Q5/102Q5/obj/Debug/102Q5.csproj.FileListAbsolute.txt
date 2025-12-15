@@ -1,0 +1,11 @@
+C:\Users\宇\Desktop\test\102Q5\102Q5\bin\Debug\102Q5.exe.config
+C:\Users\宇\Desktop\test\102Q5\102Q5\bin\Debug\102Q5.exe
+C:\Users\宇\Desktop\test\102Q5\102Q5\bin\Debug\102Q5.pdb
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\102Q5.csproj.AssemblyReference.cache
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\_102Q5.Form1.resources
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\_102Q5.Properties.Resources.resources
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\102Q5.csproj.GenerateResource.cache
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\102Q5.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\102Q5.exe
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\102Q5.pdb
+C:\Users\宇\Desktop\test\102Q5\102Q5\obj\Debug\102Q5.exe.config

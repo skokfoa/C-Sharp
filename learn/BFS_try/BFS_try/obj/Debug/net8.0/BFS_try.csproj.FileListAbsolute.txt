@@ -1,0 +1,14 @@
+C:\Users\宇\Desktop\BFS_try\BFS_try\bin\Debug\net8.0\BFS_try.exe
+C:\Users\宇\Desktop\BFS_try\BFS_try\bin\Debug\net8.0\BFS_try.deps.json
+C:\Users\宇\Desktop\BFS_try\BFS_try\bin\Debug\net8.0\BFS_try.runtimeconfig.json
+C:\Users\宇\Desktop\BFS_try\BFS_try\bin\Debug\net8.0\BFS_try.dll
+C:\Users\宇\Desktop\BFS_try\BFS_try\bin\Debug\net8.0\BFS_try.pdb
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.AssemblyInfoInputs.cache
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.AssemblyInfo.cs
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.csproj.CoreCompileInputs.cache
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.dll
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\refint\BFS_try.dll
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.pdb
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\BFS_try.genruntimeconfig.cache
+C:\Users\宇\Desktop\BFS_try\BFS_try\obj\Debug\net8.0\ref\BFS_try.dll
