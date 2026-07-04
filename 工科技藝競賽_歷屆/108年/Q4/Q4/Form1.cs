@@ -19,14 +19,6 @@ namespace Q4
 
         public Form1()
         {
-
-            TextBox t = new TextBox();
-            t.Text = string.Empty;
-            t.Location = new Point(100, 100);
-            t.Size = new Size(100, 100);
-            t.BorderStyle = BorderStyle.FixedSingle;
-            t.BackColor = Color.Black;
-            this.Controls.Add(t);
             InitializeComponent();
             
             dot = 0;

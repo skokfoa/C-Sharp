@@ -1,7 +1,0 @@
-C:\Users\Davis-School\Desktop\模擬2_Q3\bin\Debug\模擬2_Q3.exe.config
-C:\Users\Davis-School\Desktop\模擬2_Q3\bin\Debug\模擬2_Q3.exe
-C:\Users\Davis-School\Desktop\模擬2_Q3\bin\Debug\模擬2_Q3.pdb
-C:\Users\Davis-School\Desktop\模擬2_Q3\obj\Debug\模擬2_Q3.csprojResolveAssemblyReference.cache
-C:\Users\Davis-School\Desktop\模擬2_Q3\obj\Debug\模擬2_Q3.csproj.CoreCompileInputs.cache
-C:\Users\Davis-School\Desktop\模擬2_Q3\obj\Debug\模擬2_Q3.exe
-C:\Users\Davis-School\Desktop\模擬2_Q3\obj\Debug\模擬2_Q3.pdb
